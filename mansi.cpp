@@ -1,13 +1,14 @@
 #include <stdio.h>
 
-void vulnerableFunction() {
-    char buffer[10];
+void vulnerableFunction(char[] param) {
+    char buffer[100];
+    int size = -1;
     printf("Enter a string: ");
-    scanf("%s", buffer);
-    sprintf(buffer, "Buffer content");
+    scanf("%s %d", buffer, size);
+    sprintf(buffer, "%s %d", param, size);
 }
 
 int main() {
-    vulnerableFunction();
+    vulnerableFunction("testing");
     return 0;
 }
